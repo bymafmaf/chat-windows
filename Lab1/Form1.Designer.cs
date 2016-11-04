@@ -28,98 +28,111 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.connect = new System.Windows.Forms.Button();
+            this.send = new System.Windows.Forms.Button();
+            this.exit = new System.Windows.Forms.Button();
+            this.myIPBox = new System.Windows.Forms.TextBox();
+            this.targetIPBox = new System.Windows.Forms.TextBox();
+            this.newInputBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.chatHistory = new System.Windows.Forms.ListBox();
+            this.myPort = new System.Windows.Forms.NumericUpDown();
+            this.targetPort = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.myPort)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.targetPort)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // connect
             // 
-            this.button1.Location = new System.Drawing.Point(407, 135);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.connect.Location = new System.Drawing.Point(407, 135);
+            this.connect.Name = "connect";
+            this.connect.Size = new System.Drawing.Size(75, 23);
+            this.connect.TabIndex = 0;
+            this.connect.Text = "Connect";
+            this.connect.UseVisualStyleBackColor = true;
+            this.connect.Click += new System.EventHandler(this.connect_Click);
             // 
-            // button2
+            // send
             // 
-            this.button2.Location = new System.Drawing.Point(630, 360);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.send.Location = new System.Drawing.Point(630, 360);
+            this.send.Name = "send";
+            this.send.Size = new System.Drawing.Size(75, 23);
+            this.send.TabIndex = 1;
+            this.send.Text = "Send";
+            this.send.UseVisualStyleBackColor = true;
+            this.send.Click += new System.EventHandler(this.send_Click);
             // 
-            // button3
+            // exit
             // 
-            this.button3.Location = new System.Drawing.Point(711, 359);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.exit.Location = new System.Drawing.Point(711, 359);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(75, 23);
+            this.exit.TabIndex = 2;
+            this.exit.Text = "Exit";
+            this.exit.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // myIPBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(128, 83);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(193, 20);
-            this.textBox1.TabIndex = 3;
+            this.myIPBox.Location = new System.Drawing.Point(128, 83);
+            this.myIPBox.Name = "myIPBox";
+            this.myIPBox.Size = new System.Drawing.Size(193, 20);
+            this.myIPBox.TabIndex = 3;
             // 
-            // textBox3
+            // targetIPBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(407, 83);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(246, 20);
-            this.textBox3.TabIndex = 5;
+            this.targetIPBox.Location = new System.Drawing.Point(407, 83);
+            this.targetIPBox.Name = "targetIPBox";
+            this.targetIPBox.Size = new System.Drawing.Size(246, 20);
+            this.targetIPBox.TabIndex = 5;
             // 
-            // textBox5
+            // newInputBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(128, 362);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(488, 20);
-            this.textBox5.TabIndex = 7;
+            this.newInputBox.Location = new System.Drawing.Point(128, 362);
+            this.newInputBox.Name = "newInputBox";
+            this.newInputBox.Size = new System.Drawing.Size(488, 20);
+            this.newInputBox.TabIndex = 7;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(125, 57);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(254, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(303, 37);
             this.label1.TabIndex = 8;
-            this.label1.Text = "label1";
+            this.label1.Text = "Windows P2P Chat ";
             // 
-            // listBox1
+            // chatHistory
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(128, 170);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(658, 186);
-            this.listBox1.TabIndex = 9;
+            this.chatHistory.FormattingEnabled = true;
+            this.chatHistory.Location = new System.Drawing.Point(128, 170);
+            this.chatHistory.Name = "chatHistory";
+            this.chatHistory.Size = new System.Drawing.Size(658, 186);
+            this.chatHistory.TabIndex = 9;
             // 
-            // numericUpDown1
+            // myPort
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(128, 110);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 10;
+            this.myPort.Location = new System.Drawing.Point(128, 110);
+            this.myPort.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.myPort.Name = "myPort";
+            this.myPort.Size = new System.Drawing.Size(120, 20);
+            this.myPort.TabIndex = 10;
             // 
-            // numericUpDown2
+            // targetPort
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(407, 110);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown2.TabIndex = 11;
+            this.targetPort.Location = new System.Drawing.Point(407, 110);
+            this.targetPort.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.targetPort.Name = "targetPort";
+            this.targetPort.Size = new System.Drawing.Size(120, 20);
+            this.targetPort.TabIndex = 11;
             // 
             // Form1
             // 
@@ -127,21 +140,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(831, 481);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.targetPort);
+            this.Controls.Add(this.myPort);
+            this.Controls.Add(this.chatHistory);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.newInputBox);
+            this.Controls.Add(this.targetIPBox);
+            this.Controls.Add(this.myIPBox);
+            this.Controls.Add(this.exit);
+            this.Controls.Add(this.send);
+            this.Controls.Add(this.connect);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myPort)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.targetPort)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,16 +162,16 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button connect;
+        private System.Windows.Forms.Button send;
+        private System.Windows.Forms.Button exit;
+        private System.Windows.Forms.TextBox myIPBox;
+        private System.Windows.Forms.TextBox targetIPBox;
+        private System.Windows.Forms.TextBox newInputBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.ListBox chatHistory;
+        private System.Windows.Forms.NumericUpDown myPort;
+        private System.Windows.Forms.NumericUpDown targetPort;
     }
 }
 
