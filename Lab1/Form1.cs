@@ -19,6 +19,8 @@ namespace Lab1
 
         Socket connectionSocket;
         EndPoint epLocal, epRemote;
+        string myName, remoteName;
+        bool firstMessage = true;
         byte[] buffer;
 
 
@@ -36,7 +38,7 @@ namespace Lab1
 
             connectionSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
             connectionSocket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-      
+
 
         }
 
@@ -52,6 +54,9 @@ namespace Lab1
 
         private void connect_Click(object sender, EventArgs e)
         {
+            myName = username.Text;
+            buffer = new byte[1500];
+
             epLocal = new IPEndPoint(IPAddress.Parse(myIPBox.Text), (int)myPort.Value);
             connectionSocket.Bind(epLocal); // my connection is binding
 
@@ -59,7 +64,13 @@ namespace Lab1
             connectionSocket.Connect(epRemote); // i 'connect' to target
             connectionSocket.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
 
-            buffer = new byte[1500];
+            ASCIIEncoding aEncoder = new ASCIIEncoding();
+            byte[] sendMsg = aEncoder.GetBytes("$" + myName + "#");
+            Thread.Sleep(3000);
+            connectionSocket.Send(sendMsg);
+
+
+
         }
 
         private void send_Click(object sender, EventArgs e)
@@ -70,25 +81,34 @@ namespace Lab1
             connectionSocket.Send(sendMsg);
 
             StringBuilder builder = new StringBuilder();
-            builder.Append(">>> You: ");
+            builder.Append(">>> " + myName + ": ");
             builder.Append(newInputBox.Text);
 
             chatHistory.Items.Add(builder.ToString());
             newInputBox.Clear();
         }
 
+
         private void MessageCallBack(IAsyncResult aResult)
         {
             try
             {
+
                 byte[] receivedData = new byte[1500];
                 receivedData = (byte[])aResult.AsyncState;
-
+                buffer = new byte[1500];
                 ASCIIEncoding aEncoder = new ASCIIEncoding();
                 String receivedString = aEncoder.GetString(receivedData);
 
+                if (receivedString.Contains("$") && receivedString.Contains("#"))
+                {
+                    remoteName = receivedString.Substring(receivedString.IndexOf('$')+1, receivedString.IndexOf('#') - receivedString.IndexOf('$')-1);
+                    connectionSocket.BeginReceiveFrom(buffer, 0, buffer.Length, SocketFlags.None, ref epRemote, new AsyncCallback(MessageCallBack), buffer);
+                    return;
+                }
+
                 StringBuilder builder = new StringBuilder();
-                builder.Append(">>> Friend: ");
+                builder.Append(">>> " + remoteName + ": ");
                 builder.Append(receivedString);
 
                 chatHistory.Items.Add(builder.ToString());
@@ -102,9 +122,9 @@ namespace Lab1
 
         }
 
-       
 
-        
+
+
 
 
     }
